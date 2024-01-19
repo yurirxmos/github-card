@@ -3,6 +3,7 @@
     --secondary: #333333;
     --thirdy: #9600db80;
     --offwhite: #f0f0f0;
+    --red: #d35151;
 }
 
 body {
@@ -163,4 +164,18 @@ body {
 .info h2 img {
     width: 20px;
     filter: invert(100%);
+}
+
+.errorMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: var(--offwhite);
+    background-color: var(--red);
+    padding: 1rem;
+    font-size: 13px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
 }

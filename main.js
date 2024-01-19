@@ -10,8 +10,13 @@ async function fetchGitHubData() {
     const emailElement = document.getElementById('email');
     const blogElement = document.getElementById('blog');
     const public_reposElement = document.getElementById('public_repos');
-    const username = usernameInput.value;
+    const usernameInputValue = usernameInput.value.trim();
+    const username = usernameInputValue.startsWith('@') ? usernameInputValue.slice(1) : usernameInputValue;
     const picture = document.querySelector('.picture');
+    const searchResultDiv = document.querySelector('.searchResult');
+    
+    // Remove a div de erro, se existir
+    removeErrorDiv();
 
     if (!username) {
         alert('Por favor, digite um nome de usuário do GitHub.');
@@ -20,9 +25,14 @@ async function fetchGitHubData() {
 
     try {
         const response = await fetch(`https://api.github.com/users/${username}`);
+
+        if (!response.ok) {
+            throw new Error(`Usuário não encontrado. Verifique o nome de usuário e tente novamente. (Status: ${response.status})`);
+        }
+
         const userData = await response.json();
 
-        document.querySelector('.searchResult').style.display = 'flex';
+        searchResultDiv.style.display = 'flex';
 
         profileName.textContent = userData.name || username;
         bio.textContent = userData.bio;
@@ -87,25 +97,34 @@ async function fetchGitHubData() {
         }
 
     } catch (error) {
-        console.error('Erro ao buscar dados do GitHub:', error);
-        alert('Erro ao buscar dados do GitHub. Verifique o nome de usuário e tente novamente.');
+        addErrorDiv(error.message);
     }
 }
 
-
-
-function resetFields() {
-    // Limpa os campos de texto
+function resetFields() { // Função para limpar os campos
     const elementsToClear = ['profileName', 'bio', 'followers', 'location', 'company', 'public_repos', 'email', 'blog'];
     elementsToClear.forEach((elementId) => {
         const element = document.getElementById(elementId);
-        element.innerHTML = ''; // Limpa o conteúdo interno
+        element.innerHTML = '';
     });
 
-    // Limpa a .picture
     const pictureElement = document.querySelector('.picture');
-    pictureElement.innerHTML = ''; // Limpa o conteúdo interno da .picture
-
-    // Esconde a div de resultados após limpar os campos
+    pictureElement.innerHTML = '';
     document.querySelector('.searchResult').style.display = 'none';
+}
+
+function addErrorDiv(errorMessage) { // Função para exibir mensagem de erro
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'errorMessage';
+    errorDiv.textContent = "O usuário não foi encontrado, por favor verifique.";
+
+    const searchResultDiv = document.querySelector('.searchResult');
+    searchResultDiv.insertAdjacentElement('afterend', errorDiv);
+}
+
+function removeErrorDiv() {
+    const existingErrorDiv = document.querySelector('.errorMessage');
+    if (existingErrorDiv) {
+        existingErrorDiv.remove();
+    }
 }

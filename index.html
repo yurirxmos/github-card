@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Github Card</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="card">
-        <div class="search">
-            <div>
-                <input type="text" id="usernameInput" placeholder="@github" />
-                <button onclick="fetchGitHubData()">
-                    <img src="./assets/search.svg" />
-                </button>
-            </div>
-
-            <h1 id="profileName"></h1>
-            <h2 id="bio"></h2>
+      <div class="search">
+        <div>
+          <input type="text" id="usernameInput" placeholder="@github" />
+          <button onclick="fetchGitHubData()">
+            <img src="./assets/search.svg" />
+          </button>
         </div>
 
-        <div class="searchResult">
-            <div class="picture"></div>
-            <div class="info">
-                <h2 id="followers"></h2>
-                <h2 id="location"></h2>
-                <h2 id="company"></h2>
-                <h2 id="public_repos"></h2>
-                <h2 id="email"></h2>
-                <h2 id="blog"></h2>
-            </div>
+        <h1 id="profileName"></h1>
+        <h2 id="bio"></h2>
+      </div>
+
+      <div class="searchResult">
+        <div class="picture"></div>
+        <div class="info">
+          <h2 id="followers"></h2>
+          <h2 id="location"></h2>
+          <h2 id="company"></h2>
+          <h2 id="public_repos"></h2>
+          <h2 id="email"></h2>
+          <h2 id="blog"></h2>
         </div>
+      </div>
     </div>
 
     <div class="footer">
-        developed with <b style="color: #9600db"><3</b> <br />
-        by <a href="https://github.com/yurirxmos" target="_blank">@yurirxmos</a>
+      developed with <b style="color: #9600db"><3</b> <br />
+      by <a href="https://github.com/yurirxmos" target="_blank">@yurirxmos</a>
     </div>
 
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>
