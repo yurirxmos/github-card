@@ -28,9 +28,6 @@ Este projeto é um buscador de perfil do GitHub desenvolvido como parte de um es
 
 ### Observações
 
-Certifique-se de ter uma conexão com a internet para buscar dados em tempo real do GitHub. Este projeto foi desenvolvido para fins educacionais e de aprendizado sobre integração com APIs.
+Certifique-se de ter uma conexão com a internet para buscar dados em tempo real do GitHub. Este projeto foi desenvolvido para fins educacionais e de aprendizado sobre integração com APIs, se tiver alguma dúvida ou sugestão, entre em contato!
 
-### Desenvolvedor
-- Yuri Ramos ([@yurirxmos](https://github.com/yurirxmos))
-
-**Desenvolvido com <3 por Yuri Ramos.**
+**Desenvolvido com ❤️ por Yuri Ramos.**
